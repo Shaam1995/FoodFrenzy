@@ -1,0 +1,68 @@
+# ═══════════════════════════════════════════════════════
+#  FoodFrenzy – Project Requirements
+#  Spring Boot + Thymeleaf + MySQL
+#  Generated from: pom.xml, buildspec.yml, README.md
+# ═══════════════════════════════════════════════════════
+
+
+# ── System Requirements ─────────────────────────────────
+Java                    = 17          (JDK 17+)
+Maven                   = 3.8+        (or use included ./mvnw)
+MySQL                   = 8.0+
+IDE                     = Eclipse / Spring Tool Suite (STS) / IntelliJ IDEA
+
+
+# ── Spring Boot Parent ──────────────────────────────────
+spring-boot-starter-parent       = 3.1.3
+
+
+# ── Core Dependencies (from pom.xml) ───────────────────
+
+# Web Layer
+spring-boot-starter-web          = 3.1.3   # Spring MVC, embedded Tomcat
+spring-boot-starter-thymeleaf    = 3.1.3   # Thymeleaf templating engine
+
+# Database & ORM
+spring-boot-starter-data-jpa     = 3.1.3   # Spring Data JPA + Hibernate ORM
+mysql-connector-j                = 8.0.x   # MySQL JDBC Driver (runtime)
+
+# Security & Authentication
+spring-boot-starter-security     = 3.1.3   # Spring Security (login, role-based access)
+
+# Validation
+spring-boot-starter-validation   = 3.1.3   # Bean Validation (Jakarta Validation API)
+
+# Development Tools
+spring-boot-devtools             = 3.1.3   # Hot reload during development (optional/runtime)
+
+
+# ── Test Dependencies ───────────────────────────────────
+spring-boot-starter-test         = 3.1.3   # JUnit 5, Mockito, Spring Test
+spring-security-test             = 6.1.x   # Spring Security test utilities
+
+
+# ── Build Plugin ────────────────────────────────────────
+spring-boot-maven-plugin         = 3.1.3   # Packages project as executable JAR
+
+
+# ── AWS CodeBuild (CI/CD) ───────────────────────────────
+# As defined in buildspec.yml:
+#   Phase 1 - install  : Verify Java & Maven versions
+#   Phase 2 - build    : mvn clean package -DskipTests
+#   Phase 3 - post_build: Copy target/*.jar → output/
+# Artifacts: output/*.jar, appspec.yml, scripts/**/*
+
+
+# ── Database Configuration (application.properties) ────
+# spring.datasource.url=jdbc:mysql://localhost:3306/foodfrenzy
+# spring.datasource.username=root
+# spring.datasource.password=root
+# spring.jpa.hibernate.ddl-auto=update
+
+
+# ── Quick Start ─────────────────────────────────────────
+# 1. git clone <repo-url>
+# 2. Create MySQL database: foodfrenzy
+# 3. Update src/main/resources/application.properties
+# 4. mvn spring-boot:run   (or ./mvnw spring-boot:run)
+# 5. Open http://localhost:8080
